@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arch-guidance
 
-## Getting Started
+Guia interativo de arquitetura de software. Não é um blog: cada assunto é uma página com problema, modelo clicável, laboratório ao vivo e o momento de **usar** e de **recusar** o padrão.
 
-First, run the development server:
+Interface em português. Código em inglês.
+
+**Site:** [https://arch-guidance.vercel.app](https://arch-guidance.vercel.app)
+
+## O que estudar
+
+Não há trilha obrigatória. Abra o módulo que estiver doendo agora.
+
+| | Módulo | Página |
+| --- | --- | --- |
+| FIG. 01 | Arquitetura hexagonal | [/hexagonal](https://arch-guidance.vercel.app/hexagonal) |
+| FIG. 02 | Acoplamento e coesão | [/acoplamento](https://arch-guidance.vercel.app/acoplamento) |
+| FIG. 03 | Atributos de qualidade | [/atributos](https://arch-guidance.vercel.app/atributos) |
+| FIG. 04 | ADR | [/adr](https://arch-guidance.vercel.app/adr) |
+| FIG. 05 | C4 | [/c4](https://arch-guidance.vercel.app/c4) |
+| FIG. 06 | Integração | [/integracao](https://arch-guidance.vercel.app/integracao) |
+| FIG. 07 | Resiliência | [/resiliencia](https://arch-guidance.vercel.app/resiliencia) |
+| FIG. 08 | Idempotência e outbox | [/idempotencia](https://arch-guidance.vercel.app/idempotencia) |
+
+Os laboratórios (pedido, PSP, fila, CLI) são simulações no navegador. Não há login, banco real nem chamada a serviços externos.
+
+## Rodar localmente
+
+Requisitos: Node.js e npm (já usados neste repositório).
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Build de produção:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Licença
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[MIT](LICENSE).
