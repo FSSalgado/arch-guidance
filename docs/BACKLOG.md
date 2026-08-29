@@ -4,7 +4,7 @@ Histórico para chats de agent. Módulos **independentes**: não precisam se ref
 
 Última decisão de produto (2026-08-29): desenvolver a **primeira leva** com o tempo. Não começar a segunda/terceira leva sem pedido explícito.
 
-**Próximo `a fazer`:** [7. Resiliência](#7-resiliência--timeout-retry-circuit-breaker--a-fazer) — rota sugerida `/resiliencia`. Só pule se o usuário pedir outro da primeira leva.
+**Próximo `a fazer`:** primeira leva concluída. Icebox (segunda/terceira leva) só com pedido explícito.
 
 ## Como um módulo fica “pronto”
 
@@ -31,13 +31,15 @@ Critério de aceite pedagógico: quem termina a página consegue **recusar** o p
 
 | Superfície | Rota | Código | Mexer no próximo módulo? |
 | --- | --- | --- | --- |
-| Índice | `/` | `app/page.tsx`, `components/guide/*` | **Sim:** um `ModuleCard` novo. Não virar o índice em artigo. |
+| Índice | `/` | `app/page.tsx`, `components/guide/*` | Só se a segunda leva começar: um `ModuleCard` novo. Não virar o índice em artigo. |
 | Hexagonal | `/hexagonal` | `components/hex/*`, `lib/hexagonal/` | Não. |
 | Acoplamento e coesão | `/acoplamento` | `components/coupling/*`, `lib/coupling/` | Não. |
 | Atributos de qualidade | `/atributos` | `components/quality/*`, `lib/quality/` | Não. |
 | ADR | `/adr` | `components/adr/*`, `lib/adr/` | Não. |
 | C4 | `/c4` | `components/c4/*`, `lib/c4/` | Não. |
 | Integração | `/integracao` | `components/integration/*`, `lib/integration/` | Não. |
+| Resiliência | `/resiliencia` | `components/resilience/*`, `lib/resilience/` | Não. |
+| Idempotência e outbox | `/idempotencia` | `components/idempotency/*`, `lib/idempotency/` | Não. |
 
 Chrome compartilhado (layout, não pedagogia): `GuideNav`, `ModuleCard`, `components/hex/Section.tsx` (wrapper de seção — ok importar).
 
@@ -95,19 +97,21 @@ Ordem sugerida de implementação (pode pular se o usuário pedir outro da lista
 - **Não entra:** implementação de broker; Kafka; REST vs GraphQL como guerra santa; hexagonal.
 - **Recusar (aceite):** o leitor recusa banco compartilhado entre times “porque é mais rápido” — e recusa lote no clique do checkout.
 
-### 7. Resiliência — timeout, retry, circuit breaker — a fazer
+### 7. Resiliência — timeout, retry, circuit breaker — feito
 
-- **Rota sugerida:** `/resiliencia` · tag `runtime`.
+- **Página:** `/resiliencia`
 - **Problema:** o vizinho lenta/cai e o sistema inteiro acompanha (ou retry duplica efeito).
 - **Lab mínimo:** chamar um serviço instável (simulado). Controles: timeout, retries, circuit breaker (fechado / aberto / meio-aberto). Ver fila de chamadas, latência, falhas em cascata vs isolamento. Ligar retry sem idempotência e mostrar o perigo (ponte para o módulo 8, sem implementá-lo aqui).
 - **Não entra:** Istio/service mesh; chaos engineering de plataforma; bulkhead/hedge como página inteira (podem ser uma nota).
+- **Recusar (aceite):** o leitor recusa retry no charge sem chave — e recusa a loja herdar o hang do PSP.
 
-### 8. Idempotência e outbox — a fazer
+### 8. Idempotência e outbox — feito
 
-- **Rota sugerida:** `/idempotencia` · tag `dados`.
+- **Página:** `/idempotencia`
 - **Problema:** HTTP reenvia; processo publica evento e o commit falha (ou o contrário) — duas verdades.
 - **Lab mínimo:** PlaceOrder (ou comando equivalente) com “cliente retried”. Sem idempotência: dois pedidos. Com chave de idempotência: um. Segundo passo: persistir e publicar — sem outbox (sumiu o evento *ou* publicou sem commit) vs com outbox (mesmo commit, relay simulado). Sem fila real.
 - **Não entra:** inbox genérico como produto; exactly-once de broker; saga (icebox).
+- **Recusar (aceite):** o leitor recusa PlaceOrder sem chave no reenvio — e recusa publicar fora do commit do agregado.
 
 ## Icebox — não puxar agora
 
@@ -119,7 +123,7 @@ Fora do guia (a menos que peçam): catálogo GoF; Kubernetes/cloud como produto;
 
 ## Índice do produto
 
-Já existe em `/`. Cartão = título, uma frase de problema, “quando estudar”, link, tag (`estrutura` | `dados` | `runtime` | `decisão`). Sem trilha obrigatória. Kickers `FIG. 01` a `FIG. 06` já usados.
+Já existe em `/`. Cartão = título, uma frase de problema, “quando estudar”, link, tag (`estrutura` | `dados` | `runtime` | `decisão`). Sem trilha obrigatória. Kickers `FIG. 01` a `FIG. 08` já usados. Primeira leva no índice.
 
 ## Como o agent deve pegar o próximo
 

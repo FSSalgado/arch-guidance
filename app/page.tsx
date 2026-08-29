@@ -72,6 +72,22 @@ export default function Home() {
               whenToStudy="Antes de a loja e a faturação virarem a mesma tabela — para nomear o cano."
               tags={["dados"]}
             />
+            <ModuleCard
+              href="/resiliencia"
+              kicker="FIG. 07"
+              title="Resiliência"
+              problem="O vizinho lenta ou cai e o sistema inteiro acompanha — ou o retry duplica o efeito."
+              whenToStudy="Antes de retry cego no charge, ou de esperar o PSP morto no checkout."
+              tags={["runtime"]}
+            />
+            <ModuleCard
+              href="/idempotencia"
+              kicker="FIG. 08"
+              title="Idempotência e outbox"
+              problem="HTTP reenvia; o processo publica o evento e o commit falha — ou o contrário."
+              whenToStudy="Quando o cliente insiste no PlaceOrder, ou gravar e publicar são dois destinos."
+              tags={["dados"]}
+            />
           </div>
         </section>
       </main>
