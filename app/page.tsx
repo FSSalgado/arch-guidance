@@ -48,6 +48,22 @@ export default function Home() {
               whenToStudy="Antes de cache, fila, réplica ou “eventual” — para nomear o que sobe e o que desce."
               tags={["decisão"]}
             />
+            <ModuleCard
+              href="/adr"
+              kicker="FIG. 04"
+              title="ADR"
+              problem="Decisão só na cabeça / no Slack; ninguém sabe o porquê nem o que foi recusado."
+              whenToStudy="Quando a escolha vai sobreviver ao Slack e ao time que saiu."
+              tags={["decisão"]}
+            />
+            <ModuleCard
+              href="/c4"
+              kicker="FIG. 05"
+              title="C4"
+              problem="Um único diagrama tenta explicar empresa, deploy e classe."
+              whenToStudy="Quando o slide mistura quem usa o sistema, o que sobe onde e a classe do checkout."
+              tags={["estrutura"]}
+            />
           </div>
         </section>
       </main>

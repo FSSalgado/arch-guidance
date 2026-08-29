@@ -4,7 +4,7 @@ Histórico para chats de agent. Módulos **independentes**: não precisam se ref
 
 Última decisão de produto (2026-08-29): desenvolver a **primeira leva** com o tempo. Não começar a segunda/terceira leva sem pedido explícito.
 
-**Próximo `a fazer`:** [4. ADR (Architecture Decision Records)](#4-adr-architecture-decision-records--a-fazer) — rota sugerida `/adr`. Só pule se o usuário pedir outro da primeira leva.
+**Próximo `a fazer`:** [6. Integração — quatro estilos](#6-integração--quatro-estilos--a-fazer) — rota sugerida `/integracao`. Só pule se o usuário pedir outro da primeira leva.
 
 ## Como um módulo fica “pronto”
 
@@ -35,6 +35,8 @@ Critério de aceite pedagógico: quem termina a página consegue **recusar** o p
 | Hexagonal | `/hexagonal` | `components/hex/*`, `lib/hexagonal/` | Não. |
 | Acoplamento e coesão | `/acoplamento` | `components/coupling/*`, `lib/coupling/` | Não. |
 | Atributos de qualidade | `/atributos` | `components/quality/*`, `lib/quality/` | Não. |
+| ADR | `/adr` | `components/adr/*`, `lib/adr/` | Não. |
+| C4 | `/c4` | `components/c4/*`, `lib/c4/` | Não. |
 
 Chrome compartilhado (layout, não pedagogia): `GuideNav`, `ModuleCard`, `components/hex/Section.tsx` (wrapper de seção — ok importar).
 
@@ -68,19 +70,21 @@ Ordem sugerida de implementação (pode pular se o usuário pedir outro da lista
 - **Não entra:** ISO 25010 enciclopédica; catálogo de 40 táticas SEI; cloud vendor; copiar o lab hexagonal (`PlaceOrder`) ou o lab de acoplamento.
 - **Recusar (aceite):** o leitor recusa “máximo em latência *e* custo *e* consistência” no mesmo desenho — não só lista os atributos.
 
-### 4. ADR (Architecture Decision Records) — a fazer
+### 4. ADR (Architecture Decision Records) — feito
 
-- **Rota sugerida:** `/adr` · tag `decisão`.
+- **Página:** `/adr`
 - **Problema:** decisão só na cabeça / no Slack; ninguém sabe o *porquê* nem o que foi recusado.
 - **Lab mínimo:** preencher um ADR curto (contexto, opções, decisão, consequências). Duas ou três opções pré-prontas (ex.: sync vs fila para “email de pedido”). Mostrar o artefato gerado. Incluir “quando *não* gravar ADR” (decisão local, reversível, óbvia).
 - **Não entra:** ferramenta de gestão de ADR no git; templates de empresa; C4 na mesma página.
+- **Recusar (aceite):** o leitor recusa ADR no caso local, reversível e óbvio — e recusa o Slack como único rastro da escolha cara.
 
-### 5. C4 — a fazer
+### 5. C4 — feito
 
-- **Rota sugerida:** `/c4` · tag `estrutura`.
+- **Página:** `/c4`
 - **Problema:** um único diagrama tenta explicar empresa, deploy e classe.
 - **Lab mínimo:** as mesmas caixas em zoom — contexto → container → componente. Clique para descer/subir. Nível 4 (código) só como “geralmente nem desenha”. Sistema exemplo estável (ex.: loja / PlaceOrder) sem copiar o lab hexagonal.
 - **Não entra:** UML completa; UML deployment; notação formal obrigatória; C4 como substituto de ADR.
+- **Recusar (aceite):** o leitor recusa empresa, deploy e classe no mesmo plano — e recusa desenhar o nível 4 como arquitetura.
 
 ### 6. Integração — quatro estilos — a fazer
 
@@ -113,7 +117,7 @@ Fora do guia (a menos que peçam): catálogo GoF; Kubernetes/cloud como produto;
 
 ## Índice do produto
 
-Já existe em `/`. Cartão = título, uma frase de problema, “quando estudar”, link, tag (`estrutura` | `dados` | `runtime` | `decisão`). Sem trilha obrigatória. Kickers `FIG. 01`, `FIG. 02` e `FIG. 03` já usados.
+Já existe em `/`. Cartão = título, uma frase de problema, “quando estudar”, link, tag (`estrutura` | `dados` | `runtime` | `decisão`). Sem trilha obrigatória. Kickers `FIG. 01` a `FIG. 05` já usados.
 
 ## Como o agent deve pegar o próximo
 
