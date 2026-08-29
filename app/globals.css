@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b0f14;
+  --foreground: #e7e1d3;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paper: #0b0f14;
+  --color-paper-2: #121820;
+  --color-paper-3: #18222c;
+  --color-ink: #e7e1d3;
+  --color-ink-dim: #9a9384;
+  --color-gold: #e0b35a;
+  --color-gold-2: #f3d48a;
+  --color-inbound: #e0895a;
+  --color-port: #6fc4b4;
+  --color-outbound: #8aa0d8;
+  --color-domain: #f3ead2;
+  --color-line: rgb(231 225 211 / 0.12);
+  --color-danger: #e07070;
+  --color-ok: #7dbe7a;
+  --font-sans: var(--font-plex);
+  --font-display: var(--font-syne);
+  --font-mono: var(--font-plex-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-plex), "IBM Plex Sans", system-ui, sans-serif;
+}
+
+.blueprint {
+  background-color: #0b0f14;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgb(224 179 90 / 0.09), transparent 50%),
+    linear-gradient(rgb(224 179 90 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(224 179 90 / 0.045) 1px, transparent 1px);
+  background-size: auto, 56px 56px, 56px 56px;
+}
+
+.hairline {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(224 179 90 / 0.55),
+    transparent
+  );
+}
+
+@keyframes packet {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgb(224 179 90 / 0.45));
+  }
+}
+
+.glow-active {
+  animation: glow-pulse 2.2s ease-in-out infinite;
+}

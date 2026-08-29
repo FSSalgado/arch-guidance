@@ -1,0 +1,23 @@
+---
+description: Guia de arquitetura — backlog, formato pedagógico e restrições do produto
+alwaysApply: true
+---
+
+# arch-guidance
+
+Guia interativo de arquitetura (não blog). Backlog e histórico de decisões: `docs/BACKLOG.md`. Leia antes de criar módulo, página ou lab.
+
+## Produto
+
+- UI em português, código em inglês.
+- Next.js + TypeScript + Tailwind. Sem login, Docker, banco real ou Postgres de verdade. CLI = painel na página.
+- Módulos independentes. Não inventar assunto fora do backlog sem o usuário pedir.
+- Hexagonal (`/hexagonal`, `components/hex/*`, `lib/hexagonal/`) está **feito**. Não reescrever para “encaixar” o próximo.
+
+## Módulo novo
+
+Página única interativa com: problema, diagrama/modelo clicável, fluxo **ou** lab ao vivo, quando usar **e não usar**. Critério: o leitor consegue recusar o padrão no caso errado.
+
+Primeira leva (só estas até o usuário pedir icebox): acoplamento/coesão → atributos de qualidade → ADR → C4 → integração (4 estilos) → resiliência → idempotência/outbox.
+
+Ao concluir um módulo, marcar `feito` em `docs/BACKLOG.md`.
