@@ -64,6 +64,14 @@ export default function Home() {
               whenToStudy="Quando o slide mistura quem usa o sistema, o que sobe onde e a classe do checkout."
               tags={["estrutura"]}
             />
+            <ModuleCard
+              href="/integracao"
+              kicker="FIG. 06"
+              title="Integração"
+              problem="Times compartilham banco “porque é mais rápido” e descobrem o custo depois."
+              whenToStudy="Antes de a loja e a faturação virarem a mesma tabela — para nomear o cano."
+              tags={["dados"]}
+            />
           </div>
         </section>
       </main>

@@ -4,7 +4,7 @@ Histórico para chats de agent. Módulos **independentes**: não precisam se ref
 
 Última decisão de produto (2026-08-29): desenvolver a **primeira leva** com o tempo. Não começar a segunda/terceira leva sem pedido explícito.
 
-**Próximo `a fazer`:** [6. Integração — quatro estilos](#6-integração--quatro-estilos--a-fazer) — rota sugerida `/integracao`. Só pule se o usuário pedir outro da primeira leva.
+**Próximo `a fazer`:** [7. Resiliência](#7-resiliência--timeout-retry-circuit-breaker--a-fazer) — rota sugerida `/resiliencia`. Só pule se o usuário pedir outro da primeira leva.
 
 ## Como um módulo fica “pronto”
 
@@ -37,6 +37,7 @@ Critério de aceite pedagógico: quem termina a página consegue **recusar** o p
 | Atributos de qualidade | `/atributos` | `components/quality/*`, `lib/quality/` | Não. |
 | ADR | `/adr` | `components/adr/*`, `lib/adr/` | Não. |
 | C4 | `/c4` | `components/c4/*`, `lib/c4/` | Não. |
+| Integração | `/integracao` | `components/integration/*`, `lib/integration/` | Não. |
 
 Chrome compartilhado (layout, não pedagogia): `GuideNav`, `ModuleCard`, `components/hex/Section.tsx` (wrapper de seção — ok importar).
 
@@ -86,12 +87,13 @@ Ordem sugerida de implementação (pode pular se o usuário pedir outro da lista
 - **Não entra:** UML completa; UML deployment; notação formal obrigatória; C4 como substituto de ADR.
 - **Recusar (aceite):** o leitor recusa empresa, deploy e classe no mesmo plano — e recusa desenhar o nível 4 como arquitetura.
 
-### 6. Integração — quatro estilos — a fazer
+### 6. Integração — quatro estilos — feito
 
-- **Rota sugerida:** `/integracao` · tag `dados`.
+- **Página:** `/integracao`
 - **Problema:** times compartilham banco “porque é mais rápido” e descobrem o custo depois.
 - **Lab mínimo:** os quatro estilos clássicos lado a lado no *mesmo* par de sistemas (loja ↔ faturação, ou equivalente): arquivo, banco compartilhado, API síncrona, mensagens. Para cada um: o que acopla, falha típica, quando faz sentido.
 - **Não entra:** implementação de broker; Kafka; REST vs GraphQL como guerra santa; hexagonal.
+- **Recusar (aceite):** o leitor recusa banco compartilhado entre times “porque é mais rápido” — e recusa lote no clique do checkout.
 
 ### 7. Resiliência — timeout, retry, circuit breaker — a fazer
 
@@ -117,7 +119,7 @@ Fora do guia (a menos que peçam): catálogo GoF; Kubernetes/cloud como produto;
 
 ## Índice do produto
 
-Já existe em `/`. Cartão = título, uma frase de problema, “quando estudar”, link, tag (`estrutura` | `dados` | `runtime` | `decisão`). Sem trilha obrigatória. Kickers `FIG. 01` a `FIG. 05` já usados.
+Já existe em `/`. Cartão = título, uma frase de problema, “quando estudar”, link, tag (`estrutura` | `dados` | `runtime` | `decisão`). Sem trilha obrigatória. Kickers `FIG. 01` a `FIG. 06` já usados.
 
 ## Como o agent deve pegar o próximo
 
